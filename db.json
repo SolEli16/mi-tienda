@@ -1,0 +1,297 @@
+{
+  "productos":[
+    { 
+      "id": 1, 
+      "nombre": "Sticker Capibara", 
+      "precio": 1200, "imagen": "stickers.jpg", 
+      "descripcion": "Hermosos stickers de Capibaras brillosos" 
+    },
+    { 
+      "id": 2, 
+      "nombre": "Lapicera Azul", 
+      "precio": 1500, 
+      "imagen": "lapicera.jpg", 
+      "descripcion": "Lapiceras de tinta azul super comodas en diferentes colores" 
+    },
+    { 
+      "id": 3, 
+      "nombre": "Lapicera de 4 Colores", 
+      "precio": 2100, 
+      "imagen": "mapedcolores.jpg", 
+      "descripcion": "Lapiceras Maped de cuatro colores (verde, rosa, violeta y celeste) super comodas y a la moda" 
+    },
+    { 
+      "id": 4, 
+      "nombre": "Resaltadores con perfume", 
+      "precio": 4500, 
+      "imagen": "resaltadores1.jpg",  
+      "descripcion": "Paquete de Resaltadores con perfume y sellos para decorar todos tus cuadernos" 
+    },
+    { 
+      "id": 5, 
+      "nombre": "Anotador cartera", 
+      "precio": 3500,
+      "imagen": "anotadorcartera.jpg",
+      "descripcion": "Preciosos anotadores carterita de hojas rayadas" 
+    },
+    { 
+      "id": 6, 
+      "nombre": "Anotador París", 
+      "precio": 3600, 
+      "imagen": "anotadorparis.jpg",
+      "descripcion": "Mini anotador con imagenes hermosas de Paris" 
+    },
+    { 
+      "id": 7, 
+      "nombre": "Cartuchos fibrones", 
+      "precio": 2900, 
+      "imagen": "cartuchosfibron.jpg", 
+      "descripcion": "Cartuchos para fibrones recargables de pizarra" 
+    },
+    { 
+      "id": 8,
+      "nombre": "Clips kawaii",
+      "precio": 1800, 
+      "imagen": "clipskawaii.jpg",
+      "descripcion": "Los más tiernos clips kawwai para marcar tus apuntes" 
+    },
+    { 
+      "id": 9, 
+      "nombre": "Cuaderno A5",
+      "precio": 4900,
+      "imagen": "cuadernoa5.jpg", 
+      "descripcion": "Cuadernos A5 con hojas rayadas de Capibaras" 
+    },
+    { 
+      "id": 10, 
+      "nombre": "Cuaderno pastel", 
+      "precio": 5200, 
+      "imagen": "cuadernospastel.jpg", 
+      "descripcion": "Cuadernos A5 pasteles con frases para tus notas (con hojas rayadas)" 
+    },
+    { 
+      "id": 11, 
+      "nombre": "Espejito flor",
+      "precio": 2500,
+      "imagen": "espejito1.jpg",
+      "descripcion": "Espejito con tapa super kawaii" 
+    },
+    { 
+      "id": 12,
+      "nombre": "Fibrones para pizarra", 
+      "precio": 3100, 
+      "imagen": "fibronpizarra.jpg",
+      "descripcion": "Fibrones recargables para pizarra en negro, azul, rojo o verde" 
+    },
+    { 
+      "id": 13, 
+      "nombre": "Lapicera gel",
+      "precio": 1900,
+      "imagen": "lapiceragel.jpg", 
+      "descripcion": "Lapiceras de gel para escribir tus apuntes del cole con estilo"
+    },
+    { 
+      "id": 14, 
+      "nombre": "Lapicera mini conejo",
+      "precio": 2100,
+      "imagen": "lapiceraminiconejo.jpg", 
+      "descripcion": "Hermosas mini lapiceras de Conejitos de cuatro colores y con luces!" 
+    },
+    { 
+      "id": 15, 
+      "nombre": "Lapicera negra",
+      "precio": 1700, 
+      "imagen": "lapiceranegra.jpg",
+      "descripcion": "Lapiceras de tinta azul super comodas en diferentes colores"
+    },
+    { 
+      "id": 16, 
+      "nombre": "Lapicera panda", 
+      "precio": 2300, 
+      "imagen": "lapicerapanda.jpg",
+      "descripcion": "Lapiceras de Panditas con 10 colores para darle vida a tus cuadernos, apuntes o dibujos!" 
+    },
+    { 
+      "id": 17, 
+      "nombre": "Lapicera Pikachu", 
+      "precio": 2400, 
+      "imagen": "lapicerapikachu.jpg",
+      "descripcion": "Lapiceras con cabecitas giratorias de Pikachu" 
+    },
+    { 
+      "id": 18,
+      "nombre": "Libreta Dino",
+      "precio": 3300, 
+      "imagen": "libretadino.jpg",
+      "descripcion": "Libretitas de dinosaurios con lapicera"  
+    },
+    { 
+      "id": 19, 
+      "nombre": "Libreta Juegos", 
+      "precio": 3200,
+      "imagen": "libretajuegos.jpg", 
+      "descripcion": "Libretita de juegos de ingenio para entrenar tu mente"  
+    },
+    { 
+      "id": 20,
+      "nombre": "Microfibra motivos",
+      "precio": 2800,
+      "imagen": "microfibrasmotivos.jpg", 
+      "descripcion": "Microfibras con variados personajes"  
+    },
+    { 
+      "id": 21,
+      "nombre": "Notas transparentes", 
+      "precio": 1600,
+      "imagen": "notastransparentes.jpg",
+      "descripcion": "Preciosas notas adhesivas transparentes para hacer tus apuntes más hermosos"  
+    },
+    { 
+      "id": 22,
+      "nombre": "Resaltador pastel",
+      "precio": 3000, 
+      "imagen": "resaltadores1.jpg",
+      "descripcion": "Resaltadores pasteles para resaltar tus apuntes de la escuela o la universidad"  
+    },
+    { 
+      "id": 23,
+      "nombre": "Sellitos divertidos",
+      "precio": 2200,
+      "imagen": "sellitos.jpg",
+      "descripcion": "Hermosos sellos parad decorar tus hojas o notas"  
+    },
+    { 
+      "id": 24,
+      "nombre": "Set de sellos",
+      "precio": 3400,
+      "imagen": "setsello.jpg",
+      "descripcion": "Los más lindos set de sellos de capibaras para decorar tus hojas"  
+    },
+    { 
+      "id": 25,
+      "nombre": "Espejito corazón",
+      "precio": 2500, 
+      "imagen": "spejito2.jpg",
+      "descripcion": "Hermosos espejitos con forma de corazón "  
+    },
+    { 
+      "id": 26,
+      "nombre": "Stickers corazones", 
+      "precio": 1300, 
+      "imagen": "stickers2.jpg", 
+      "descripcion": "Stickers para hacer anotaciones hermosas en tus apuntes importantes"  
+    },
+    { 
+      "id": 27, 
+      "nombre": "Stickers animales", 
+      "precio": 1300,
+      "imagen": "stickers3.jpg",
+      "descripcion": "Stickers de animalitos para decorar todo lo que quieras"  
+    },
+    { 
+      "id": 28,
+      "nombre": "Stickers kawaii",
+      "precio": 1300, 
+      "imagen": "stickers4.jpg",
+      "descripcion": "Stickers para decorar lo que imagines"  
+    },
+    { 
+      "id": 29,
+      "nombre": "Goma Pikachu",
+      "precio": 1400,
+      "imagen": "gomapikachu.jpg",
+      "descripcion": "Preciosas gomas de Pikachu que podes poner en tus lapices"  
+    },
+    { 
+      "id": 30,
+      "nombre": "Gomas dinosaurios",
+      "precio": 1500, 
+      "imagen": "gomasdinos.jpg", 
+      "descripcion": "Hermosas gomas de dinosaurios kawaii para que borres con estilo"  
+    },
+    { 
+      "id": 31,
+      "nombre": "Gomas pastitas",
+      "precio": 1500, 
+      "imagen": "gomaspastitas.jpg",
+      "descripcion": "Hermosas gomas de patitas de gato kawaii para que borres con estilo"  
+    },
+    { 
+      "id": 32, 
+      "nombre": "Lapicera flexible",
+      "precio": 1800, 
+      "imagen": "flexibles.jpg", 
+      "descripcion": "Microfibras flexibles de diferentes personajes para que aprendas jugando"  
+    },
+    { 
+      "id": 33, 
+      "nombre": "Libreta estilo 1", 
+      "precio": 3100, 
+      "imagen": "libreta1.jpg", 
+      "descripcion": "Libretitas para tus pequeños apuntes"  
+    },
+    { 
+      "id": 34,
+      "nombre": "Cuaderno A5 color 1",
+      "precio": 5100,
+      "imagen": "cuadernoa5-1.jpg",
+      "descripcion": "Cuadernos A5 con hojas rayadas de varios personajes"  
+    },
+    { 
+      "id": 35,
+      "nombre": "Cuaderno A5 color 2",
+      "precio": 5100,
+      "imagen": "cuadernoa5-2.jpg",
+      "descripcion": "Cuadernos A5 con hojas rayadas de varios personajes"  
+    },
+    { 
+      "id": 36,
+      "nombre": "Lapicera 1",
+      "precio": 1500, 
+      "imagen": "lapicera1.jpg", 
+      "descripcion": "Variadas lapiceras para que des estilo a tus anotaciones"  
+    },
+    { 
+      "id": 37, 
+      "nombre": "Lapicera 2", 
+      "precio": 1500,
+      "imagen": "lapicera2.jpg",
+      "descripcion": "Variadas lapiceras para que des estilo a tus anotaciones"  
+    },
+    { 
+      "id": 38,
+      "nombre": "Lapicera 3",
+      "precio": 1500,
+      "imagen": "lapicera3.jpg",
+      "descripcion": "Variadas lapiceras para que des estilo a tus anotaciones"  
+    },
+    { 
+      "id": 39,
+      "nombre": "Lapicera 4",
+      "precio": 1500, 
+      "imagen": "lapicera4.jpg",
+      "descripcion": "Variadas lapiceras para que des estilo a tus anotaciones"  
+    },
+    { 
+      "id": 40, 
+      "nombre": "Lapicera 5",
+      "precio": 1500,
+      "imagen": "lapicera5.jpg",
+      "descripcion": "Variadas lapiceras para que des estilo a tus anotaciones"  
+    },
+    { 
+      "id": 41,
+      "nombre": "Lapicera 6",
+      "precio": 1500,
+      "imagen": "lapicera6.jpg",
+      "descripcion": "Variadas lapiceras para que des estilo a tus anotaciones"  
+    },
+    { 
+      "id": 42,
+      "nombre": "Lapicera",
+      "precio": 1500,
+      "imagen": "lapicera.jpg",
+      "descripcion": "Variadas lapiceras para que des estilo a tus anotaciones"  
+    }
+]
+}
