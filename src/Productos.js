@@ -36,36 +36,38 @@ function Productos({ onAddToCart }) {
   }, []);
 
   if (error) return <p className="container">❌ {error}</p>;
-  if (productos.length === 0) return <p className="container">⏳ Cargando catálogo...</p>;
+  if (!productos.length) return <p className="container">⏳ Cargando productos...</p>;
 
   return (
-    <div className="container">
-      <h2>📦 Catálogo completo</h2>
-      <div className="productos-container">
-        {productos.map((item) => (
-          <div key={item.id} className="product-card">
-            <Link to={`/producto/${item.id}`}>
-              <strong>{item.nombre}</strong>
-            </Link>
-            <img src={`${process.env.PUBLIC_URL}/img/${producto.imagen}`} alt={producto.nombre} />
-            <p>${item.precio}</p>
-            <button
-              onClick={() =>
-                onAddToCart({
-                  id: item.id,
-                  title: item.nombre,
-                  price: item.precio,
-                  image: `/img/${item.imagen}`,
-                })
-              }
-            >
-              Agregar al carrito
-            </button>
-          </div>
-        ))}
-      </div>
+    <div className="productos-container">
+      {productos.map((producto) => (
+        <div key={producto.id} className="producto-card">
+          <Link to={`/producto/${producto.id}`}>
+            <img
+              src={`${process.env.PUBLIC_URL}/img/${producto.imagen}`}
+              alt={producto.nombre}
+              className="producto-imagen"
+            />
+          </Link>
+          <h3>{producto.nombre}</h3>
+          <p>💰 ${producto.precio}</p>
+          <button
+            onClick={() =>
+              onAddToCart({
+                id: producto.id,
+                title: producto.nombre,
+                price: producto.precio,
+                image: `${process.env.PUBLIC_URL}/img/${producto.imagen}`,
+              })
+            }
+          >
+            🛒 Agregar al carrito
+          </button>
+        </div>
+      ))}
     </div>
   );
 }
 
 export default Productos;
+
