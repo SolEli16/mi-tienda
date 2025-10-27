@@ -7,12 +7,35 @@ function ProductDetail({ onAddToCart }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/productos/${id}`)
+    fetch('https://api-productos.vercel.app/productos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        query: `
+          query {
+            productos {
+              id
+              nombre
+              precio
+              descripcion
+              imagen
+            }
+          }
+        `
+      })
+    })
       .then((res) => {
-        if (!res.ok) throw new Error('Producto no encontrado');
+        if (!res.ok) throw new Error('Error al cargar producto');
         return res.json();
       })
-      .then((data) => setProducto(data))
+      .then((data) => {
+        if (data.errors) throw new Error('Error en la consulta GraphQL');
+        const productoEncontrado = data.data.productos.find((p) => p.id.toString() === id);
+        if (!productoEncontrado) throw new Error('Producto no encontrado');
+        setProducto(productoEncontrado);
+      })
       .catch((err) => setError(err.message));
   }, [id]);
 

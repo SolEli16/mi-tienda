@@ -6,12 +6,32 @@ function Productos({ onAddToCart }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:4000/productos')
+    fetch('https://api-productos.vercel.app/productos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        query: `
+          query {
+            productos {
+              id
+              nombre
+              precio
+              imagen
+            }
+          }
+        `
+      })
+    })
       .then((res) => {
         if (!res.ok) throw new Error('Error al cargar productos');
         return res.json();
       })
-      .then((data) => setProductos(data))
+      .then((data) => {
+        if (data.errors) throw new Error('Error en la consulta GraphQL');
+        setProductos(data.data.productos);
+      })
       .catch((err) => setError(err.message));
   }, []);
 
