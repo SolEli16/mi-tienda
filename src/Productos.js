@@ -47,7 +47,7 @@ function Productos({ onAddToCart }) {
             <Link to={`/producto/${item.id}`}>
               <strong>{item.nombre}</strong>
             </Link>
-            <img src={`/img/${item.imagen}`} alt={item.nombre} />
+            <img src={`${process.env.PUBLIC_URL}/img/${producto.imagen}`} alt={producto.nombre} />
             <p>${item.precio}</p>
             <button
               onClick={() =>
