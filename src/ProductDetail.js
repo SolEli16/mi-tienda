@@ -46,7 +46,7 @@ function ProductDetail({ onAddToCart }) {
     <div className="detalle-container">
       <div className="detalle-card">
         <img
-          src={`/img/${producto.imagen}`}
+          src={`${process.env.PUBLIC_URL}/img/${producto.imagen}`}
           alt={producto.nombre}
           className="detalle-imagen"
         />
@@ -61,7 +61,7 @@ function ProductDetail({ onAddToCart }) {
                 id: producto.id,
                 title: producto.nombre,
                 price: producto.precio,
-                image: `/img/${producto.imagen}`,
+                image: `${process.env.PUBLIC_URL}/img/${producto.imagen}`,
               })
             }
           >
