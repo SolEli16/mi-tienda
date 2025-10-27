@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/mi-tienda/static/css/main.228ec464.css",
-    "main.js": "/mi-tienda/static/js/main.8b4e9b3a.js",
+    "main.js": "/mi-tienda/static/js/main.c7beed74.js",
     "index.html": "/mi-tienda/index.html",
     "main.228ec464.css.map": "/mi-tienda/static/css/main.228ec464.css.map",
-    "main.8b4e9b3a.js.map": "/mi-tienda/static/js/main.8b4e9b3a.js.map"
+    "main.c7beed74.js.map": "/mi-tienda/static/js/main.c7beed74.js.map"
   },
   "entrypoints": [
     "static/css/main.228ec464.css",
-    "static/js/main.8b4e9b3a.js"
+    "static/js/main.c7beed74.js"
   ]
 }
