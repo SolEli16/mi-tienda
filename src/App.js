@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { ToastContainer } from "react-toastify";
@@ -21,7 +21,15 @@ import { CartProvider } from "./contexts/CartContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import GlobalStyles from "./styles/globalStyles"; // ✅ Importación correcta
 
+// Importamos el script de carga de productos demo
+import { seedProductos } from "./utils/seedProductos";
+
 function App() {
+  useEffect(() => {
+    // ⚠️ Ejecutar solo una vez para poblar MockAPI con productos de librería
+    seedProductos();
+  }, []);
+
   return (
     <div
       style={{
