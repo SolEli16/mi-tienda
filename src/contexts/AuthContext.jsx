@@ -9,7 +9,12 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const savedUser = localStorage.getItem("usuario");
     if (savedUser) {
-      setUser(JSON.parse(savedUser));
+      try {
+        setUser(JSON.parse(savedUser));
+      } catch (error) {
+        console.error("Usuario inválido en localStorage:", error);
+        localStorage.removeItem("usuario");
+      }
     }
   }, []);
 

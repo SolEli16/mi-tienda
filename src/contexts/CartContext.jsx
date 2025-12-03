@@ -1,7 +1,12 @@
 // 📂 /src/contexts/CartContext.jsx
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 
 export const CartContext = createContext();
+
+// ✅ Hook personalizado para consumir el contexto
+export function useCart() {
+  return useContext(CartContext);
+}
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);

@@ -11,7 +11,8 @@ export default function Carrito() {
   const [resumenCompra, setResumenCompra] = useState([]);
   const [numeroPedido, setNumeroPedido] = useState("");
 
-  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  // ⚠️ Usamos "precio" en lugar de "price"
+  const total = cart.reduce((acc, item) => acc + item.precio * item.quantity, 0);
 
   const finalizarCompra = () => {
     const nuevoPedido = "PED-" + Date.now().toString().slice(-6);
@@ -33,14 +34,14 @@ export default function Carrito() {
           <ul>
             {resumenCompra.map((item, index) => (
               <li key={index}>
-                {item.title} x {item.quantity} = ${item.price * item.quantity}
+                {item.nombre} x {item.quantity} = ${item.precio * item.quantity}
               </li>
             ))}
           </ul>
           <p id="total">
             💰 Total: $
             {resumenCompra
-              .reduce((acc, item) => acc + item.price * item.quantity, 0)
+              .reduce((acc, item) => acc + item.precio * item.quantity, 0)
               .toFixed(2)}
           </p>
           <p
@@ -64,8 +65,8 @@ export default function Carrito() {
               <ul>
                 {cart.map((item) => (
                   <li key={item.id}>
-                    {item.title} x {item.quantity} = $
-                    {(item.price * item.quantity).toFixed(2)}
+                    {item.nombre} x {item.quantity} = $
+                    {(item.precio * item.quantity).toFixed(2)}
                     <div>
                       <button onClick={() => decreaseQty(item.id)}>➖</button>
                       <button onClick={() => increaseQty(item.id)}>➕</button>

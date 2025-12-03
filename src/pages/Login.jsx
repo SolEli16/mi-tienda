@@ -1,3 +1,4 @@
+// 📂 src/pages/Login.jsx
 import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { Navigate } from "react-router-dom";
@@ -25,29 +26,8 @@ export default function Login() {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          style={{
-            width: "100%",
-            padding: "8px",
-            marginBottom: "10px",
-            borderRadius: "6px",
-            border: "1px solid #ccc",
-          }}
         />
-        <button
-          type="submit"
-          style={{
-            backgroundColor: "#cd20f8",
-            color: "white",
-            border: "none",
-            padding: "10px 20px",
-            borderRadius: "6px",
-            cursor: "pointer",
-            fontWeight: "bold",
-            width: "100%",
-          }}
-        >
-          Ingresar
-        </button>
+        <button type="submit">Ingresar</button>
       </form>
     </div>
   );

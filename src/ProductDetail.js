@@ -1,41 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+// 📂 src/ProductDetail.js
+import React, { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom"; // 👈 importamos Link
+import { useCart } from "./contexts/CartContext";
 
-function ProductDetail({ onAddToCart }) {
+export default function ProductDetail() {
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
   const [error, setError] = useState(null);
+  const { addToCart } = useCart();
 
   useEffect(() => {
-    fetch('https://api-productos.vercel.app/productos', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        query: `
-          query {
-            productos {
-              id
-              nombre
-              precio
-              descripcion
-              imagen
-            }
-          }
-        `
-      })
-    })
+    fetch(`https://692da3e9e5f67cd80a4c5a07.mockapi.io/productos/${id}`)
       .then((res) => {
-        if (!res.ok) throw new Error('Error al cargar producto');
+        if (!res.ok) throw new Error("Error al cargar producto");
         return res.json();
       })
-      .then((data) => {
-        if (data.errors) throw new Error('Error en la consulta GraphQL');
-        const productoEncontrado = data.data.productos.find((p) => p.id.toString() === id);
-        if (!productoEncontrado) throw new Error('Producto no encontrado');
-        setProducto(productoEncontrado);
-      })
+      .then((data) => setProducto(data))
       .catch((err) => setError(err.message));
   }, [id]);
 
@@ -54,23 +34,28 @@ function ProductDetail({ onAddToCart }) {
           <h2 className="detalle-nombre">{producto.nombre}</h2>
           <p className="detalle-descripcion">{producto.descripcion}</p>
           <p className="detalle-precio">💰 ${producto.precio}</p>
+
+          {/* Botón de agregar al carrito */}
           <button
             className="detalle-boton"
             onClick={() =>
-              onAddToCart({
+              addToCart({
                 id: producto.id,
-                title: producto.nombre,
-                price: producto.precio,
-                image: `${process.env.PUBLIC_URL}/img/${producto.imagen}`,
+                nombre: producto.nombre,
+                precio: producto.precio,
+                imagen: producto.imagen,
               })
             }
           >
             🛒 Agregar al carrito
           </button>
+
+          {/* Botón de volver a productos */}
+          <Link to="/productos" className="detalle-boton volver-boton">
+            🔙 Volver a productos
+          </Link>
         </div>
       </div>
     </div>
   );
 }
-
-export default ProductDetail;

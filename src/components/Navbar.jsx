@@ -1,9 +1,10 @@
+// 📂 src/components/Navbar.jsx
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import { CartContext } from "../contexts/CartContext";
 
-function Navbar() {
+export default function Navbar() {
   const { isAuthenticated, logout, user } = useContext(AuthContext);
   const { cart } = useContext(CartContext);
 
@@ -32,9 +33,7 @@ function Navbar() {
       <div className="nav-right" style={{ display: "flex", gap: "15px" }}>
         {isAuthenticated ? (
           <>
-            <span style={{ marginRight: "10px" }}>
-              👤 {user?.email}
-            </span>
+            <span style={{ marginRight: "10px" }}>👤 {user?.email}</span>
             <button
               onClick={logout}
               style={{
@@ -84,4 +83,3 @@ function Navbar() {
   );
 }
 
-export default Navbar;
