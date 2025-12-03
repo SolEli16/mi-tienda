@@ -1,7 +1,11 @@
+// 📂 src/pages/AdminProductos.jsx
 import { useContext, useState } from "react";
 import { ProductsContext } from "../contexts/ProductsContext";
 import { toast } from "react-toastify";
 import ProductForm from "../components/ProductForm";
+import { FaEdit, FaTrash } from "react-icons/fa";
+import { Helmet } from "react-helmet";
+import ConfirmModal from "../components/ConfirmModal"; // 🔹 Importamos el modal
 
 export default function AdminProductos() {
   const {
@@ -14,10 +18,10 @@ export default function AdminProductos() {
   } = useContext(ProductsContext);
 
   const [editing, setEditing] = useState(null);
+  const [confirm, setConfirm] = useState({ open: false, id: null }); // 🔹 Estado para el modal
 
-  // 🗑️ Eliminar producto con confirmación
+  // 🗑️ Eliminar producto con confirmación (usando modal)
   const handleDelete = async (id) => {
-    if (!window.confirm("¿Seguro que querés eliminar este producto?")) return;
     try {
       await eliminarProducto(id);
       toast.success("Producto eliminado correctamente");
@@ -43,8 +47,17 @@ export default function AdminProductos() {
   };
 
   return (
-    <div className="container mt-4">
-      <h2 className="mb-4">Administración de Productos</h2>
+    <div className="admin-container">
+      {/* 🧾 SEO con Helmet */}
+      <Helmet>
+        <title>Talento Tech Shop - Administración</title>
+        <meta
+          name="description"
+          content="Panel de administración de productos en Talento Tech Shop. Crear, editar y eliminar productos."
+        />
+      </Helmet>
+
+      <h2 className="admin-title">⚙️ Administración de Productos</h2>
 
       {/* Mensajes de carga y error */}
       {loading && <p>Cargando productos...</p>}
@@ -58,37 +71,48 @@ export default function AdminProductos() {
       />
 
       {/* Listado de productos */}
-      <ul className="list-group mt-4">
+      <ul className="admin-list">
         {productos.length === 0 && !loading && (
-          <li className="list-group-item">No hay productos cargados.</li>
+          <li className="admin-item">No hay productos cargados.</li>
         )}
         {productos.map((p) => (
-          <li
-            key={p.id}
-            className="list-group-item d-flex justify-content-between align-items-center"
-          >
-            <div>
+          <li key={p.id} className="admin-item">
+            <div className="admin-info">
               <strong>{p.nombre}</strong> — ${p.precio}
               <br />
               <small>{p.descripcion}</small>
             </div>
-            <div>
+            <div className="admin-actions">
               <button
                 onClick={() => setEditing(p)}
-                className="btn btn-sm btn-primary me-2"
+                className="carrito-boton"
+                aria-label={`Editar producto ${p.nombre}`}
               >
-                Editar
+                <FaEdit /> Editar
               </button>
               <button
-                onClick={() => handleDelete(p.id)}
-                className="btn btn-sm btn-danger"
+                onClick={() => setConfirm({ open: true, id: p.id })} // 🔹 Abrimos modal
+                className="carrito-boton eliminar"
+                aria-label={`Eliminar producto ${p.nombre}`}
               >
-                Eliminar
+                <FaTrash /> Eliminar
               </button>
             </div>
           </li>
         ))}
       </ul>
+
+      {/* 🔹 Modal de confirmación */}
+      <ConfirmModal
+        open={confirm.open}
+        title="Eliminar producto"
+        message="¿Seguro que querés eliminar este producto?"
+        onConfirm={() => {
+          handleDelete(confirm.id);
+          setConfirm({ open: false, id: null });
+        }}
+        onCancel={() => setConfirm({ open: false, id: null })}
+      />
     </div>
   );
 }

@@ -29,13 +29,14 @@ html, body {
 .nav-left {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 30px;
-  flex: 1;
 }
 
 .nav-right {
-  position: relative;
+   display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
 }
 
 .logo {
@@ -56,6 +57,40 @@ html, body {
 
 .navbar a:hover {
   color: #cd20f8;
+}
+
+.custom-navbar {
+  background: linear-gradient(135deg, #cd20f8, #a500a5);
+  padding: 10px 20px;
+}
+
+.custom-navbar .nav-link {
+  color: white !important;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #ffd6ff !important;
+}
+/* Botones dentro de la navbar (login, cerrar sesión, carrito) */
+.custom-navbar .carrito-boton {
+  background: #cd20f8;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.custom-navbar .carrito-boton:hover {
+  background: #a500a5;
+}
+
+.custom-navbar .btn {
+  border-radius: 6px;
 }
 
 /* 🛒 Botón del carrito */
@@ -101,15 +136,21 @@ html, body {
 
 /* 🧺 Botones del carrito */
 .carrito-boton {
-  background-color: #cd20f8;
-  color: white;
+  background-color: linear-gradient(135deg, #cd20f8, #a500a5);
+  color: #a500a5;
   border: none;
-  padding: 6px 12px;   /* 👈 tamaño más compacto */
-  border-radius: 6px;
+  padding: 10px 14px;   /* 👈 tamaño más compacto */
+  border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
-  margin: 0 5px;
+  transition: transform 0.2s ease, background 0.3s ease;
+  margin-top:  8px;
   font-size: 14px;     /* 👈 texto más pequeño */
+}
+
+.carrito-boton:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #a500a5, #cd20f8);
 }
 
 /* Botón eliminar */
@@ -145,22 +186,22 @@ html, body {
 
 
 
-/* 🛍️ Contenedor principal de productos */
+/* 🛍️ Contenedor principal de productos 
 .productos-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 25px;
   padding: 30px;
 }
-
+*/
 /* 🧃 Tarjetas de producto con estilo uniforme */
-.product-card {
-  background: linear-gradient(135deg, #f9e4ff, #ffffff); /* 👈 mismo degradado que login */
+/*.product-card {
+  background: linear-gradient(135deg, #f9e4ff, #ffffff)
   border: 1px solid #ddd;
   border-radius: 16px;
   padding: 20px;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* 👈 sombra igual que login */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
@@ -178,7 +219,7 @@ html, body {
   margin-bottom: 15px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-
+ 
 .product-card h3 {
   color: #4a006b;
   font-size: 20px;
@@ -190,9 +231,9 @@ html, body {
   color: #333;
   margin-bottom: 12px;
 }
-
+*/
 /* Botones uniformes */
-.product-card button,
+/*.product-card button,
 .product-card a {
   display: block;
   width: 100%;
@@ -212,7 +253,7 @@ html, body {
 .product-card a:hover {
   transform: scale(1.05);
   background: linear-gradient(135deg, #a500a5, #cd20f8);
-}
+}*/
 
 
 /* 🧺 Carrito */
@@ -437,7 +478,7 @@ ol li::marker {
   background-color: #a000c0;
 }
 
-.productos-container {
+/*.productos-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
@@ -474,10 +515,10 @@ ol li::marker {
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-  text-decoration: none; /* para que el Link no tenga subrayado */
+  text-decoration: none; /* para que el Link no tenga subrayado
   text-align: center;
 }
-
+ */
 
 .detalle-link {
   display: inline-block;
@@ -512,37 +553,126 @@ ol li::marker {
   flex-direction: column;
   max-width: 600px;
   width: 100%;
-  background: #fff;
+  background: linear-gradient(135deg, #f9e4ff, #ffffff); /* 👈 igual que login/carrito */
   border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
+/* Imagen del producto */
 .detalle-imagen {
   width: 100%;
-  max-width: 400px;   /* 👈 tamaño máximo en desktop */
+  max-width: 300px;
   height: auto;
   margin: 0 auto 20px;
   display: block;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .detalle-info {
   text-align: center;
 }
 
+
+/* Texto del detalle */
+.detalle-nombre {
+  color: #4a006b;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.detalle-descripcion {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.detalle-precio {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #4a006b;
+  font-weight: bold;
+}
+
+/* Botones */
 .detalle-boton {
-  background-color: #cd20f8;
+  background: linear-gradient(135deg, #cd20f8, #a500a5);
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
   margin-top: 15px;
+  transition: transform 0.2s ease, background 0.3s ease;
+  display: block;
+  width: 100%;
 }
+
+.detalle-boton:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #a500a5, #cd20f8);
+}
+
+.volver-boton {
+  margin-top: 10px;
+  background-color: #6c757d; /* gris para diferenciar */
+}
+
+/* ⚙️ Contenedor de administración */
+.admin-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: linear-gradient(135deg, #f9e4ff, #ffffff); /* 👈 igual que login/carrito */
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.admin-title {
+  color: #4a006b;
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+/* Lista de productos */
+.admin-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.admin-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.admin-info {
+  text-align: left;
+  color: #333;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 10px;
+}
+
 
 /* 📱 Responsivo para móviles */
 @media (max-width: 768px) {
@@ -572,4 +702,153 @@ ol li::marker {
 
 .volver-boton {
   margin-top: 5px; /* separación extra debajo del carrito */
+}
+
+
+/* 📋 Formulario de productos */
+.product-form {
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #cd20f8;
+  box-shadow: 0 0 6px rgba(205, 32, 248, 0.5);
+  outline: none;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  flex: 1;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.search-icon {
+  margin-right: 8px;
+  color: #a500a5;
+  font-size: 20px;
+}
+
+
+.paginacion {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.pagina-boton {
+  background: linear-gradient(135deg, #cd20f8, #a500a5);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pagina-boton.activa {
+  background: linear-gradient(135deg, #a500a5, #cd20f8);
+}
+.pagina-boton:hover {
+  background: linear-gradient(135deg, #a500a5, #cd20f8);
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Compactar la página de productos */
+.productos-page h2 {
+  font-size: 1.4rem;   /* más chico que el h2 de Bootstrap */
+  margin-bottom: 1rem;
+}
+
+.productos-page h3 {
+  font-size: 1rem;     /* títulos de producto más chicos */
+  margin: 0.5rem 0;
+}
+
+.productos-page p {
+  font-size: 0.9rem;   /* texto más chico */
+  margin: 0.25rem 0;
+}
+
+.productos-page img {
+  max-width: 160px !important;
+  height: 160px !important;
+  object-fit: contain !important;
+}
+
+.productos-page .product-card {
+  padding: 12px;       /* menos espacio interno */
+}
+
+.productos-page .product-card-button {
+  font-size: 0.85rem;  /* botones más chicos */
+  padding: 6px 12px;
+  margin: 4px;
+  border-radius: 6px;
+}
+
+.productos-page .search-bar {
+  font-size: 0.9rem;
+  padding: 6px 10px;
+}
+
+.productos-page .paginacion button {
+  font-size: 0.85rem;
+  padding: 4px 10px;
 }

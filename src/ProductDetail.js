@@ -1,7 +1,9 @@
 // 📂 src/ProductDetail.js
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom"; // 👈 importamos Link
+import { useParams, Link } from "react-router-dom";
 import { useCart } from "./contexts/CartContext";
+import { FaShoppingCart, FaArrowLeft } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -19,11 +21,20 @@ export default function ProductDetail() {
       .catch((err) => setError(err.message));
   }, [id]);
 
-  if (error) return <p className="container">❌ {error}</p>;
-  if (!producto) return <p className="container">⏳ Cargando producto...</p>;
+  if (error) return <p className="detalle-container">❌ {error}</p>;
+  if (!producto) return <p className="detalle-container">⏳ Cargando producto...</p>;
 
   return (
     <div className="detalle-container">
+      {/* 🧾 SEO con Helmet */}
+      <Helmet>
+        <title>{`Talento Tech Shop - ${producto?.nombre || "Detalle de producto"}`}</title>
+        <meta
+          name="description"
+          content={`Detalle del producto ${producto?.nombre}. Precio: $${producto?.precio}.`}
+        />
+      </Helmet>
+
       <div className="detalle-card">
         <img
           src={`${process.env.PUBLIC_URL}/img/${producto.imagen}`}
@@ -38,6 +49,7 @@ export default function ProductDetail() {
           {/* Botón de agregar al carrito */}
           <button
             className="detalle-boton"
+            aria-label={`Agregar ${producto.nombre} al carrito`}
             onClick={() =>
               addToCart({
                 id: producto.id,
@@ -47,12 +59,16 @@ export default function ProductDetail() {
               })
             }
           >
-            🛒 Agregar al carrito
+            <FaShoppingCart /> Agregar al carrito
           </button>
 
           {/* Botón de volver a productos */}
-          <Link to="/productos" className="detalle-boton volver-boton">
-            🔙 Volver a productos
+          <Link
+            to="/productos"
+            className="detalle-boton volver-boton"
+            aria-label="Volver al catálogo de productos"
+          >
+            <FaArrowLeft /> Volver a productos
           </Link>
         </div>
       </div>

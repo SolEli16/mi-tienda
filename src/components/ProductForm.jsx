@@ -41,33 +41,33 @@ export default function ProductForm({ initial, onSave, onCancel }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4">
-      <div className="mb-3">
-        <label className="form-label">Nombre</label>
+    <form onSubmit={handleSubmit} className="product-form">
+      <div className="form-group">
+        <label>Nombre</label>
         <input
           type="text"
-          className={`form-control ${errors.nombre ? "is-invalid" : ""}`}
+          className={`form-input ${errors.nombre ? "is-invalid" : ""}`}
           value={form.nombre}
           onChange={(e) => handleChange("nombre", e.target.value)}
         />
         {errors.nombre && <div className="invalid-feedback">{errors.nombre}</div>}
       </div>
 
-      <div className="mb-3">
-        <label className="form-label">Precio</label>
+      <div className="form-group">
+        <label>Precio</label>
         <input
           type="number"
-          className={`form-control ${errors.precio ? "is-invalid" : ""}`}
+          className={`form-input ${errors.precio ? "is-invalid" : ""}`}
           value={form.precio}
           onChange={(e) => handleChange("precio", e.target.value)}
         />
         {errors.precio && <div className="invalid-feedback">{errors.precio}</div>}
       </div>
 
-      <div className="mb-3">
-        <label className="form-label">Descripción</label>
+      <div className="form-group">
+        <label>Descripción</label>
         <textarea
-          className={`form-control ${errors.descripcion ? "is-invalid" : ""}`}
+          className={`form-input ${errors.descripcion ? "is-invalid" : ""}`}
           value={form.descripcion}
           onChange={(e) => handleChange("descripcion", e.target.value)}
         />
@@ -76,12 +76,16 @@ export default function ProductForm({ initial, onSave, onCancel }) {
         )}
       </div>
 
-      <div>
-        <button type="submit" className="btn btn-success me-2">
+      <div className="form-actions">
+        <button type="submit" className="carrito-boton">
           {initial ? "Actualizar" : "Crear"}
         </button>
         {initial && (
-          <button type="button" className="btn btn-secondary" onClick={onCancel}>
+          <button
+            type="button"
+            className="carrito-boton vaciar"
+            onClick={onCancel}
+          >
             Cancelar
           </button>
         )}
@@ -89,3 +93,4 @@ export default function ProductForm({ initial, onSave, onCancel }) {
     </form>
   );
 }
+
