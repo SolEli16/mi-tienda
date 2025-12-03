@@ -40,14 +40,14 @@ export function CartProvider({ children }) {
     });
   };
 
-  // ➖ Disminuir cantidad
+  // ➖ Disminuir cantidad (si llega a 1 y se resta, se elimina)
   const decreaseQty = (id) => {
     setCart((prevCart) =>
-      prevCart.map((item) =>
-        item.id === id && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      )
+      prevCart
+        .map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+        )
+        .filter((item) => item.quantity > 0) // 👈 elimina si llega a 0
     );
   };
 
@@ -68,9 +68,25 @@ export function CartProvider({ children }) {
   // 🧹 Vaciar carrito
   const clearCart = () => setCart([]);
 
+  // 💰 Calcular total de productos y precio
+  const cartTotalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const cartTotalPrice = cart.reduce(
+    (acc, item) => acc + item.quantity * item.precio,
+    0
+  );
+
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, clearCart, increaseQty, decreaseQty }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        increaseQty,
+        decreaseQty,
+        cartTotalItems,
+        cartTotalPrice,
+      }}
     >
       {children}
     </CartContext.Provider>

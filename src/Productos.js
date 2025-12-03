@@ -15,39 +15,42 @@ export default function Productos() {
   }, []);
 
   return (
-    <div className="productos-container">
-      {productos.map((producto) => (
-        <div key={producto.id} className="producto-card">
-          <img
-            src={`${process.env.PUBLIC_URL}/img/${producto.imagen}`}
-            alt={producto.nombre}
-            className="producto-imagen"
-          />
-          <h3>{producto.nombre}</h3>
-          <p>💰 ${producto.precio}</p>
+    <div className="productos-page">
+      <h2>📚 Catálogo de productos</h2>
+      <div className="productos-container">
+        {productos.map((producto) => (
+          <div key={producto.id} className="product-card">
+            <img
+              src={`${process.env.PUBLIC_URL}/img/${producto.imagen}`}
+              alt={producto.nombre}
+            />
+            <h3>{producto.nombre}</h3>
+            <p>💰 ${producto.precio}</p>
 
-          {/* Botón de Ver detalle arriba */}
-          <Link to={`/producto/${producto.id}`} className="producto-boton">
-            Ver detalle
-          </Link>
+            {/* Botón de Ver detalle */}
+            <Link to={`/producto/${producto.id}`} className="product-card-button">
+              Ver detalle
+            </Link>
 
-          {/* Botón de Agregar al carrito debajo */}
-          <button
-            className="producto-boton"
-            onClick={() =>
-              addToCart({
-                id: producto.id,
-                nombre: producto.nombre,
-                precio: producto.precio,
-                imagen: producto.imagen,
-              })
-            }
-          >
-            🛒 Agregar al carrito
-          </button>
-        </div>
-      ))}
+            {/* Botón de Agregar al carrito */}
+            <button
+              className="product-card-button"
+              onClick={() =>
+                addToCart({
+                  id: producto.id,
+                  nombre: producto.nombre,
+                  precio: producto.precio,
+                  imagen: producto.imagen,
+                })
+              }
+            >
+              🛒 Agregar al carrito
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
+
 

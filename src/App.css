@@ -1,7 +1,8 @@
-/* 🌈 Fondo general */
+/* 🌈 Fondo general con degradado verde agua + violeta */
 html, body {
   margin: 0;
   font-family: 'Dancing Script', cursive;
+  background: linear-gradient(135deg, #a8edea, #cd20f8); /* 👈 verde agua → violeta */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -98,56 +99,121 @@ html, body {
   color: #4a006b;
 }
 
-/* 🛍️ Contenedor principal */
-.container {
-  padding: 30px;
-}
-
-/* 🧃 Tarjetas de producto */
-.product-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 220px;
-  text-align: center;
-}
-
-.product-card img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.product-card button {
+/* 🧺 Botones del carrito */
+.carrito-boton {
   background-color: #cd20f8;
   color: white;
   border: none;
-  padding: 6px 10px;
-  margin-top: 10px;
-  border-radius: 5px;
+  padding: 6px 12px;   /* 👈 tamaño más compacto */
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
+  font-weight: bold;
+  margin: 0 5px;
+  font-size: 14px;     /* 👈 texto más pequeño */
 }
 
-.product-card button:hover {
-  background-color: #a500a5;
+/* Botón eliminar */
+.carrito-boton.eliminar {
+  background-color: #dc3545;
 }
 
-.productos-container {
+/* Botón vaciar */
+.carrito-boton.vaciar {
+  background-color: #6c757d;
+  margin-top: 10px;
+  width: auto;         /* 👈 ya no ocupa todo el ancho */
+  display: inline-block;
+}
+
+/* Botón finalizar */
+.carrito-boton.finalizar {
+  background: linear-gradient(135deg, #cd20f8, #a500a5);
+  margin-top: 10px;
+  width: auto;         /* 👈 ya no ocupa todo el ancho */
+  display: inline-block;
+}
+
+/* Contenedor de botones dentro de cada producto */
+.botones-carrito {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  align-items: center;
+  gap: 8px;            /* 👈 separación uniforme */
+  margin-top: 8px;
+  width: 100%;
 }
+
+
+
+/* 🛍️ Contenedor principal de productos */
+.productos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  padding: 30px;
+}
+
+/* 🧃 Tarjetas de producto con estilo uniforme */
+.product-card {
+  background: linear-gradient(135deg, #f9e4ff, #ffffff); /* 👈 mismo degradado que login */
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* 👈 sombra igual que login */
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+.product-card img {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.product-card h3 {
+  color: #4a006b;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.product-card p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+/* Botones uniformes */
+.product-card button,
+.product-card a {
+  display: block;
+  width: 100%;
+  background: linear-gradient(135deg, #cd20f8, #a500a5);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 8px;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.product-card button:hover,
+.product-card a:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #a500a5, #cd20f8);
+}
+
 
 /* 🧺 Carrito */
 .cart-container {
@@ -166,7 +232,12 @@ html, body {
 
 .cart-container li {
   border-bottom: 1px solid #ddd;
-  padding: 10px 0;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
 }
 
 .cart-container h2 {
@@ -176,39 +247,73 @@ html, body {
   text-align: center;
 }
 
+
 /* 🔐 Login */
 .login-container {
   max-width: 400px;
   margin: 60px auto;
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, #f9e4ff, #ffffff);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.login-container h2 {
+  color: #4a006b;
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: bold;
 }
 
 .login-container input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  font-size: 18px;
-  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  border-radius: 8px;
   border: 1px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container input:focus {
+  border-color: #cd20f8;
+  box-shadow: 0 0 6px rgba(205, 32, 248, 0.5);
+  outline: none;
 }
 
 .login-container button {
-  background-color: #cd20f8;
+  background: linear-gradient(135deg, #cd20f8, #a500a5);
   color: white;
   font-size: 18px;
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  transition: transform 0.2s ease, background 0.3s ease;
 }
 
 .login-container button:hover {
-  background-color: #a500a5;
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #a500a5, #cd20f8);
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ✨ Animación de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
 
 /* 📱 Responsive */
 @media (max-width: 600px) {
@@ -243,73 +348,43 @@ html, body {
 }
 
 /* 🛒 Ítems del carrito */
-.cart-content button,
-.cart-qty button,
-.clear-btn,
-.remove-btn {
-  font-size: 14px;
-  padding: 4px 6px;
-}
-
 .cart-item {
   display: flex;
-  align-items: center;
+  flex-direction: column;   /* 👈 apila contenido verticalmente */
+  align-items: center;      /* 👈 centra horizontalmente */
+  text-align: center;       /* 👈 centra texto */
   gap: 8px;
   background-color: #f9e4ff;
-  padding: 6px;
-  margin-bottom: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
   border-radius: 6px;
   font-size: 14px;
-}
-
-.cart-thumb {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .cart-details {
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  align-items: center;      /* 👈 centra nombre y precio */
+  gap: 6px;
+  margin-bottom: 10px;
 }
 
 .cart-qty {
   display: flex;
+  justify-content: center;  /* 👈 centra horizontalmente */
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+  margin-top: 8px;
 }
 
-.cart-total {
-  font-weight: 700;
-  text-align: center;
-  margin: 10px 0;
-  color: #4a006b;
+/* Botones principales del carrito */
+.cart-actions {
+  display: flex;
+  justify-content: center;  /* 👈 centra horizontalmente */
+  gap: 12px;
+  margin-top: 20px;
 }
 
-.clear-btn {
-  width: 100%;
-  margin-bottom: 8px;
-}
-
-.go-cart-link {
-  display: block;
-  text-align: center;
-  font-weight: 700;
-  font-size: 16px;
-  color: #4a006b;
-  text-decoration: none;
-  margin-top: 5px;
-  transition: transform 0.2s ease, color 0.3s ease;
-}
-
-.go-cart-link:hover {
-  transform: scale(1.05);
-  color: #ff4081;
-}
 
 /* 🎀 Títulos y texto */
 h1 {

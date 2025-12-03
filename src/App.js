@@ -1,8 +1,10 @@
+// 📂 src/App.js
 import React, { useEffect } from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // 👈 BrowserRouter
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
 
 import Home from "./Home";
 import Productos from "./Productos";
@@ -25,39 +27,40 @@ import GlobalStyles from "./styles/globalStyles";
 
 function App() {
   useEffect(() => {
-    // ⚠️ Ejecutar solo una vez para poblar MockAPI con productos de librería
-    // Luego comentar/quitar para evitar duplicados
+    // ⚠️ Ejecutar solo una vez para poblar MockAPI con productos
     // seedProductos();
   }, []);
 
   return (
     <HelmetProvider>
-      <div
-        style={{
-          backgroundImage: 'url("/fondo.png")',
-          backgroundSize: "cover",
-          backgroundAttachment: "fixed",
-          backgroundPosition: "center",
-          minHeight: "100vh",
-        }}
-      >
-        <Router>
-          <Helmet>
-            <title>Talento Tech Shop</title>
-            <meta
-              name="description"
-              content="Proyecto final React - eCommerce con carrito, CRUD y autenticación"
-            />
-          </Helmet>
+      <AuthProvider>
+        <ProductsProvider>
+          <CartProvider>
+            <Router>
+              <Helmet>
+                <title>Talento Tech Shop</title>
+                <meta
+                  name="description"
+                  content="Proyecto final React - eCommerce con carrito, CRUD y autenticación"
+                />
+              </Helmet>
 
-          <AuthProvider>
-            <ProductsProvider>
-              <CartProvider>
-                <GlobalStyles />
-                <Navbar />
+              <GlobalStyles />
+              <Navbar />
 
+              <main
+                style={{
+                  backgroundImage: 'url("/fondo.png")',
+                  backgroundSize: "cover",
+                  backgroundAttachment: "fixed",
+                  backgroundPosition: "center",
+                  minHeight: "100vh",
+                  paddingBottom: "40px",
+                }}
+              >
                 <Routes>
                   <Route path="/" element={<Home />} />
+                  <Route path="/login" element={<Login />} />
                   <Route path="/productos" element={<Productos />} />
                   <Route path="/producto/:id" element={<ProductDetail />} />
                   <Route
@@ -68,7 +71,6 @@ function App() {
                       </ProtectedRoute>
                     }
                   />
-                  <Route path="/login" element={<Login />} />
                   <Route path="/reseñas" element={<Reseñas />} />
                   <Route path="/contacto" element={<Contacto />} />
                   <Route
@@ -80,15 +82,16 @@ function App() {
                     }
                   />
                 </Routes>
+              </main>
 
-                <ToastContainer position="top-right" autoClose={2500} />
-              </CartProvider>
-            </ProductsProvider>
-          </AuthProvider>
-        </Router>
-      </div>
+              <ToastContainer position="top-right" autoClose={2500} />
+            </Router>
+          </CartProvider>
+        </ProductsProvider>
+      </AuthProvider>
     </HelmetProvider>
   );
 }
 
 export default App;
+
