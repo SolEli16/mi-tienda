@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# 🛍️ Chucherías de Ensueño - E‑Commerce React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicación desarrollada como proyecto final de **Talento Tech**, que implementa un catálogo de productos con carrito de compras, autenticación de usuarios y CRUD completo utilizando **React**, **Context API**, **MockAPI**, **Bootstrap** y **styled-components**.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Características principales
 
-### `npm start`
+- **Carrito de compras** con Context API:
+  - Agregar, eliminar y vaciar productos.
+  - Estado global persistente.
+- **Autenticación de usuarios**:
+  - Login simulado con `localStorage`.
+  - Rutas protegidas para secciones privadas.
+- **CRUD de productos** con MockAPI:
+  - Crear, leer, editar y eliminar productos.
+  - Validaciones en formularios.
+  - Modal de confirmación antes de eliminar.
+- **Diseño responsivo**:
+  - Bootstrap grid + styled-components.
+  - Íconos con React Icons.
+  - Notificaciones con React Toastify.
+- **SEO y accesibilidad**:
+  - React Helmet para `<title>` y `<meta>`.
+  - Etiquetas ARIA en botones.
+- **Búsqueda y paginación**:
+  - Filtrar productos por nombre y categoría.
+  - Paginador dinámico.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📦 Instalación
 
-### `npm test`
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/tuusuario/chucherias-ensueno.git
+   cd chucherias-ensueno
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Instalar dependencias:
+    npm install
 
-### `npm run build`
+3. Ejecutar la aplicacion en modo desarrollo:
+    npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Abrir en el navegador:
+    http://localhost:3000
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##  Uso de la aplicación:
+Login: ingresar usuario simulado para acceder al carrito y secciones privadas.
 
-### `npm run eject`
+Catálogo: navegar productos, usar la barra de búsqueda y paginación.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Carrito: agregar productos, ver detalle, eliminar o vaciar.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Administración:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Agregar producto con formulario validado.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Editar producto existente.
 
-## Learn More
+Eliminar producto con confirmación.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Notificaciones: Toastify muestra mensajes de éxito o error.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🛠️ Tecnologías utilizadas
+React
 
-### Code Splitting
+React Router
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Context API
 
-### Analyzing the Bundle Size
+MockAPI
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Bootstrap
 
-### Making a Progressive Web App
+styled-components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+React Icons
 
-### Advanced Configuration
+React Toastify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+React Helmet
 
-### Deployment
+📱 Compatibilidad
+Probado en:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+✅ Escritorio (Chrome, Edge, Firefox)
 
-### `npm run build` fails to minify
+✅ Tablets
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+✅ Móviles
